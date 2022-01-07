@@ -1,4 +1,5 @@
 function Header(props) {
+
     return (
         <header className="header">
             <div className="left-menu">
@@ -17,11 +18,7 @@ function Header(props) {
                         className="search-bar"
                         placeholder="Search mail"
                         type="search" id="search-input"
-                        onChange={function (e) {
-                            e.preventDefault()
-                            props.setCurrentTab('search')
-                            props.setSearchInbox(e.target.value)
-                        }}
+                        onChange={e => {props.setSearchInbox(e.target.value)}}
                     />
 
             </div>

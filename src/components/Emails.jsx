@@ -5,7 +5,7 @@ function Emails (props){
         <main className="emails">
         <ul>
           {props.filteredEmails.map((email, index) => (
-            <Email email={email} index={index} toggleRead={props.toggleRead} toggleStar={props.toggleStar}/>
+            <Email email={email} index={email.id} toggleRead={props.toggleRead} toggleStar={props.toggleStar} />
           ))}
         </ul>
       </main>

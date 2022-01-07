@@ -45,16 +45,16 @@ function App() {
   if (currentTab === 'starred')
     filteredEmails = getStarredEmails(filteredEmails)
 
-  if (currentTab === 'search') filteredEmails = emails.filter(
-    email => {
+  if (searchInbox !== '') filteredEmails = filteredEmails.filter(email => {
       return (
-        email.title.toLowerCase().includes(searchInbox.toLowerCase())
+        email.title.toLowerCase().includes(searchInbox.toLowerCase()) ||
+        email.sender.toLowerCase().includes(searchInbox.toLowerCase())
       )}
   )
 
   return (
     <div className="app">
-      <Header setCurrentTab={setCurrentTab} searchInbox={searchInbox} setSearchInbox={searchInbox}/>
+      <Header setCurrentTab={setCurrentTab} searchInbox={searchInbox} setSearchInbox={setSearchInbox} />
 
       <LeftMenu currentTab={currentTab} setCurrentTab={setCurrentTab}
         unreadEmails={unreadEmails}
